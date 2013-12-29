@@ -106,6 +106,8 @@
 
 .field private mHardwareAccelSkia:Z
 
+.field private mIsWebapp:Z
+
 .field private mJavaScriptCanOpenWindowsAutomatically:Z
 
 .field private mJavaScriptEnabled:Z
@@ -133,6 +135,8 @@
 .field private mNavDump:Z
 
 .field private mNeedInitialFocus:Z
+
+.field private mNightReadMode:Z
 
 .field private mNotificationState:Landroid/webkit/WebSettings$NotificationState;
 
@@ -232,6 +236,10 @@
     iput-object v1, p0, Landroid/webkit/WebSettingsClassic;->mLayoutAlgorithm:Landroid/webkit/WebSettings$LayoutAlgorithm;
 
     iput v6, p0, Landroid/webkit/WebSettingsClassic;->mTextSize:I
+    
+    iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mNightReadMode:Z
+
+    iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mIsWebapp:Z
 
     const-string v1, "sans-serif"
 
@@ -1630,6 +1638,30 @@
     throw v0
 .end method
 
+.method public declared-synchronized getIsWebapp()Z
+    .locals 1
+
+    .prologue
+    
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Landroid/webkit/WebSettingsClassic;->mIsWebapp:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
 .method public declared-synchronized getJavaScriptCanOpenWindowsAutomatically()Z
     .locals 1
 
@@ -1813,6 +1845,30 @@
     iget-boolean v0, p0, Landroid/webkit/WebSettingsClassic;->mNeedInitialFocus:Z
 
     return v0
+.end method
+
+.method public declared-synchronized getNightReadModeEnabled()Z
+    .locals 1
+
+    .prologue
+    
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Landroid/webkit/WebSettingsClassic;->mNightReadMode:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
 .method public getNotificationState()Landroid/webkit/WebSettings$NotificationState;
@@ -3303,6 +3359,36 @@
     throw v0
 .end method
 
+.method public declared-synchronized setIsWebapp(Z)V
+    .locals 1
+    .parameter "isWebapp"
+
+    .prologue
+    
+    monitor-enter p0
+
+    :try_start_0
+    iput-boolean p1, p0, Landroid/webkit/WebSettingsClassic;->mIsWebapp:Z
+
+    
+    invoke-direct {p0}, Landroid/webkit/WebSettingsClassic;->postSync()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    
+    monitor-exit p0
+
+    return-void
+
+    
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
 .method public declared-synchronized setJavaScriptCanOpenWindowsAutomatically(Z)V
     .locals 1
     .parameter "flag"
@@ -3644,6 +3730,36 @@
 
     :cond_0
     return-void
+.end method
+
+.method public declared-synchronized setNightReadModeEnabled(Z)V
+    .locals 1
+    .parameter "enable"
+
+    .prologue
+    
+    monitor-enter p0
+
+    :try_start_0
+    iput-boolean p1, p0, Landroid/webkit/WebSettingsClassic;->mNightReadMode:Z
+
+    
+    invoke-direct {p0}, Landroid/webkit/WebSettingsClassic;->postSync()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    
+    monitor-exit p0
+
+    return-void
+
+    
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
 .method public setNotificationState(Landroid/webkit/WebSettings$NotificationState;)V
