@@ -415,9 +415,9 @@
     invoke-direct {v8}, Ljava/util/Timer;-><init>()V
 
     .local v8, "t":Ljava/util/Timer;
-    new-instance v10, Lcom/android/internal/telephony/uicc/UiccCard$TimerTask;
+    new-instance v10, Lcom/android/internal/telephony/uicc/UiccCard$TimeTask;
 
-    invoke-direct {v10, p0, v1, v8}, Lcom/android/internal/telephony/uicc/UiccCard$TimerTask;-><init>(Lcom/android/internal/telephony/uicc/UiccCard;Landroid/app/AlertDialog;Ljava/util/Timer;)V
+    invoke-direct {v10, p0, v1, v8}, Lcom/android/internal/telephony/uicc/UiccCard$TimeTask;-><init>(Lcom/android/internal/telephony/uicc/UiccCard;Landroid/app/AlertDialog;Ljava/util/Timer;)V
 
     const-wide/16 v12, 0x2710
 
